@@ -53,9 +53,9 @@ def create_order(request):
             request.POST['receiver_postcode'])
         Order.objects.create(id=id,
                 weight=request.POST['package_weight'],
+                shipping_user_id=request.user.email,
                 sender_id=sender_id,
-                receiver_id=receiver_id,
-                shipping_user_email=request.user.email
+                receiver_id=receiver_id
                 )
         OrderStatus.objects.create(order_id=id,
             time=datetime.datetime.now(),

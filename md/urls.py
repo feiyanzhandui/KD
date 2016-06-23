@@ -17,12 +17,18 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import urls as auth_urls
 from kd import views as kd_views
+from django.views.generic.edit import CreateView
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/', include('users.urls')),
+    url(r'^accounts/', include('users.urls'), name='account'),
+    #url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html'), name='user_profile'),
     url(r'^$', kd_views.home, name='home'),
+    url(r'^user_profile/', kd_views.user_profile, name='user_profile'),
     url(r'^create/', kd_views.create, name='create'),
     url(r'^create_order/', kd_views.create_order, name='create_order'),
+    url(r'^search_order/', kd_views.search_order, name='search_order'),
 ]
 

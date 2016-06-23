@@ -150,6 +150,7 @@ USERS_CHECK_PASSWORD_COMPLEXITY = True
 
 USERS_SPAM_PROTECTION = False  # important!
 
+LOGIN_REDIRECT_URL = 'user_profile'
 
 #  ---------------------------------------------------------
 #  Email

@@ -3,7 +3,7 @@ from .models import EndUser, ShippingUser, Order, OrderStatus
 
 # Register your models here.
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'weight', 'shipping_user_id', 'sender_id', 'receiver_id')
+    list_display = ('id', 'weight', 'sender_id', 'receiver_id', 'shipping_user_email')
 
 class OrderStatusAdmin(admin.ModelAdmin):
 	list_display = ('order_id', 'time', 'status', 'location', 'primKey')
